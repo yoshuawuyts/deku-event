@@ -7,11 +7,13 @@ const dom = deku.dom
 var button = component()
 button.use(event.plugin())
 
-button.on('render', function (props, state) {
+button.prototype.render = function render (props, state) {
+  return dom('button', { onClick: this.onClick }, [props.text])
+}
+
+button.on('initialState', function (props, state) {
   console.log(props, state)
-  return dom('button')
 })
 
-button.render(document.body, {foo: 'bar'})
-
-console.log(button.render)
+const targetNode = document.querySelector('.targetMe')
+button.render(targetNode, {foo: 'bar'})

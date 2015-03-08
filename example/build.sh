@@ -1,2 +1,2 @@
 #!/bin/sh
-watchify index.js -o bundle.js
+watchify index.js -d -o bundle.js

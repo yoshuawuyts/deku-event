@@ -33,6 +33,7 @@ function eventer () {
     setValue(component, 'afterUpdate')
     setValue(component, 'beforeUnmount')
     setValue(component, 'afterUnmount')
+    setValue(component, 'render') // make sure this function can still be called
   }
 }
 
