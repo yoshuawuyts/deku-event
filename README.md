@@ -4,7 +4,9 @@
 [![Test coverage][coveralls-image]][coveralls-url]
 [![Downloads][downloads-image]][downloads-url]
 
-Turn deku components into event emitters.
+Turn deku components into event emitters. Doesn't work as advertised yet,
+relies on [segmentio/deku#51](https://github.com/segmentio/deku/issues/51) to
+be resolved first.
 
 ## Installation
 ```bash
@@ -31,8 +33,7 @@ button.render(document.body, {foo: 'bar'})
 
 ## API
 #### event(deku.component)
-Wrap `deku.component` so all created components use
-`deku-event` by default
+Wrap `deku.component` so all created components use `deku-event` by default.
 ```js
 const event = require('deku-event')
 const deku = require('deku')
