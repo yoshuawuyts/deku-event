@@ -4,7 +4,7 @@
 [![Test coverage][coveralls-image]][coveralls-url]
 [![Downloads][downloads-image]][downloads-url]
 
-
+Turn deku components into event emitters.
 
 ## Installation
 ```bash
@@ -13,20 +13,45 @@ $ npm install deku-event
 
 ## Usage
 ```js
+const event = require('deku-event')
+const deku = require('deku')
 
+const component = deku.component
+const dom = deku.dom
+
+var button = component()
+button.use(event.plugin())
+
+button.on('render', function (props, state) {
+  return dom('button')
+})
+
+button.render(document.body, {foo: 'bar'})
 ```
 
 ## API
+#### event(deku.component)
+Wrap `deku.component` so all created components use
+`deku-event` by default
 ```js
+const event = require('deku-event')
+const deku = require('deku')
 
+const component = event(deku.component)
 ```
 
-## Why?
+#### component().use(event.plugin())
+Attach a plugin to the component.
+```js
+const event = require('deku-event')
+const deku = require('deku')
 
+const component = event(deku.component)
+const dom = deku.dom
 
-## See Also
--
-
+var button = component()
+button.use(event.plugin())
+```
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)
 
